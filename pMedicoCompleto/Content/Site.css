@@ -1,0 +1,140 @@
+﻿body {
+    background-image: url("/images/Teste.png");
+    /*background-image: url("/images/cadastro.png");*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#ctnfluid p {
+    font-size: 18px;
+    text-align: justify;
+    min-width: 70%;
+}
+
+#ctnfluid h2 {
+    text-align: center;
+    padding-bottom: 12px;
+}
+
+#logomark {
+    padding-top: 6%;
+}
+
+#services {
+    padding-top: 6%;
+}
+
+.logo {
+    color: red;
+    font-size: 100px;
+}
+
+.logosmall {
+    color: red;
+    font-size: 50px;
+}
+
+.logosmall2 {
+    padding-left: 4%;
+    color: red;
+    font-size: 25px;
+}
+
+
+#botaocontato {
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .col-sm-4 {
+        text-align: justify;
+        margin: 25px 0;
+    }
+}
+
+
+#cadastros {
+    padding-top: 8%;
+}
+
+    #cadastros p {
+        font-size: 25px;
+        text-align: center;
+        margin: 0 0 0 -65px;
+    }
+
+#editar h2 {
+    font-size: 50px;
+}
+
+.teste1 {
+    border: 10px solid transparent;
+    margin-bottom: 25px;
+    width: 80%;
+    height: 80%;
+}
+
+    .teste1:hover {
+        border-color: red;
+    }
+
+#testee {
+    background-color: white;
+}
+
+    #testee a {
+        font-size: 18px;
+        color: red;
+    }
+
+#logoSite {
+    height: 50px;
+    width: 100px;
+}
+
+#c {
+    margin-top: 10%;
+}
+
+
+.tabelaMedico {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    .tabelaMedico td, #customers th {
+        border: 1px solid black;
+        padding: 4px;
+    }
+
+    .tabelaMedico tr:nth-child(even) {
+        background-color: white;
+    }
+
+    .tabelaMedico tr:hover {
+        background-color: lightgrey;
+    }
+
+    .tabelaMedico th {
+        padding-top: 4px;
+        border: 1px solid black;
+        padding-bottom: 4px;
+        text-align: center;
+        background-color: red;
+    }

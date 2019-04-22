@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Médico - Explosões de Pesquisa!</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <nav id="testee" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jesus">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="~/Imagens/heart.jpg" id="logoSite" />
+            </div>
+
+            <div class="col-lg-offset-1">
+                @Html.ActionLink("Meu Médico", "Index","Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+
+            <div class="collapse navbar-collapse navbar-r" id="jesus">
+                <ul class="nav navbar-nav">
+                    <li><a href="/Home/About">Sobre</a></li>
+                    <li><a href="/Home/Contato">Contato</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle"
+                               data-toggle="dropdown">
+                                Bem vindo @User.Identity.Name<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/Medicos/Index"><span class="glyphicon glyphicon-tasks"></span> Painel Administrativo</a>
+                                </li>
+
+                                <li>
+                                    <a href="/Perfil/AlterarSenha"><span class="glyphicon glyphicon-pencil"></span> Alterar Senha</a>
+                                </li>
+                                <li>
+                                    <a href="/Autenticacao/Logout"><span class="glyphicon glyphicon-off"></span> Desconectar</a>
+                                   
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                            <li><a href="/Autenticacao/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            @*@Html.ActionLink("Login", "Login", "Autenticacao")*@
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Meu Médico Application</p>
+        </footer>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("script", false);
+</body>
+</html>

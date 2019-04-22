@@ -1,0 +1,102 @@
+﻿@model IEnumerable<pMedicoCompleto.Models.Medico>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center; font-size:35px; color:black; padding-bottom:33px;">
+
+    <b>Lista de Médicos</b>
+
+</h2>
+@if (User.Identity.IsAuthenticated)
+{
+    <h2 style="text-align:center; font-size:35px; color:black; padding-bottom:33px;">
+
+        <b>Painel Administrativo</b>
+
+    </h2>
+    <a href="/Medicos/Create"><span class="glyphicon glyphicon-user"></span> Cadastrar Médico</a>
+    <a href="/Especialidades/Index"><span class="glyphicon glyphicon-briefcase" style="padding-left:13px;"></span> Paine de Especialidade</a>
+    <a href="/Usuarios/Index"><span class="glyphicon glyphicon-lock" style="padding-left:13px;"></span> Painel do Adminstrador</a>
+    <a href="/Cidades/Index"><span class="glyphicon glyphicon-home" style="padding-left:13px; padding-bottom:12px;"></span> Painel de Cidade</a>
+}
+
+
+<table class="table-bordered table-striped table-responsive tabelaMedico">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CRM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Especialidade.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cidade.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Convenio)*@
+            @Html.DisplayName("Atende Convênios")
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.pClinica)*@
+            @Html.DisplayName("Possui Clinica")
+        </th>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <th></th>
+        }
+        </tr>
+                
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CRM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidade.Nome)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Convenio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pClinica)
+            </td>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <td>
+                    <a href="Edit/@item.MedicoID"><span class="glyphicon glyphicon-pencil"></span>Editar</a> <br /><br />
+                    <a href="Delete/@item.MedicoID"><span class="glyphicon glyphicon-trash"></span>Excluir</a>
+                </td>
+            }
+
+        </tr>
+    }
+
+</table>

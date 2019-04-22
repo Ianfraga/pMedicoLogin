@@ -1,0 +1,50 @@
+﻿@model IEnumerable<pMedicoCompleto.Models.Cidade>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center; font-size:35px; color:black; padding-bottom:33px;">
+
+    <b>Lista de Cidades</b>
+
+</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h2 style="text-align:center; font-size:35px; color:black; padding-bottom:33px;">
+
+        <b>Painel Administrativo</b>
+
+    </h2>
+    <a href="/Cidades/Create"><span class="glyphicon glyphicon-briefcase" style="padding-left:13px; padding-bottom:12px"></span> Cadastrar Cidade</a>
+
+}
+<table class="table-bordered table-striped table-responsive tabelaMedico">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <th></th>
+        }
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <td>
+                <a href="Edit/@item.CidadeID"><span class="glyphicon glyphicon-pencil"></span>Editar</a> <br /><br />
+                <a href="Delete/@item.CidadeID"><span class="glyphicon glyphicon-trash"></span>Excluir</a>
+            </td>
+        }
+    </tr>
+    }
+
+</table>
